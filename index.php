@@ -1,3 +1,6 @@
+<?php 
+include("sql/bd.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +11,7 @@
 <body>
     <div>
         <h1>Entrar:</h1>
-        <form action="menuUsuario.php" method="post">
+        <form action="index.php" method="post" id="form">
             <label for="">Usuario:</label><br>
             <input type="text" name="usuario" id=""><br>
             <label for="">Senha:</label><br>
@@ -17,5 +20,23 @@
         </form>
     </div><br>
     <a href="criarConta.php">não tenho conta</a>
+
+    <script src="script.js"></script>
 </body>
 </html>
+<?php 
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $usuario = filter_input(INPUT_POST, "usuario", FILTER_SANITIZE_SPECIAL_CHARS);
+        $senha = filter_input(INPUT_POST, "senha", FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $existe = procurarUsuario($usuario, $senha, $conn);
+
+        if ($existe) {
+            header("Location: menuUsuario.php");
+            exit;
+        }
+    }
+
+    mysqli_close($conn);
+?>
