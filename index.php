@@ -17,5 +17,7 @@
         </form>
     </div><br>
     <a href="criarConta.php">não tenho conta</a>
+
+    <script src="script.js"></script>
 </body>
 </html>
