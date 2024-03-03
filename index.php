@@ -19,7 +19,7 @@ include("sql/bd.php");
             <input type="submit" value="Entrar">
         </form>
     </div><br>
-    <a href="criarConta.php">não tenho conta</a>
+    <a href="cadastro.php">não tenho conta</a>
 
     <script src="script.js"></script>
 </body>
