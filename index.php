@@ -20,12 +20,9 @@ include("sql/bd.php");
         </form>
     </div><br>
     <a href="cadastro.php">não tenho conta</a>
-
-    <script src="script.js"></script>
 </body>
 </html>
 <?php 
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = filter_input(INPUT_POST, "usuario", FILTER_SANITIZE_SPECIAL_CHARS);
         $senha = filter_input(INPUT_POST, "senha", FILTER_SANITIZE_SPECIAL_CHARS);
