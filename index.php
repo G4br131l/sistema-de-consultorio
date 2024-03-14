@@ -27,13 +27,14 @@ include("sql/bd.php");
         $usuario = filter_input(INPUT_POST, "usuario", FILTER_SANITIZE_SPECIAL_CHARS);
         $senha = filter_input(INPUT_POST, "senha", FILTER_SANITIZE_SPECIAL_CHARS);
 
-        $existe = procurarUsuario($usuario, $senha, $conn);
+        $existe = procurarUsuario($usuario, $senha);
 
         if ($existe) {
+            echo"existe";
             header("Location: menuUsuario.php");
             exit;
+        } else {
+            echo"nada";
         }
     }
-
-    mysqli_close($conn);
 ?>
